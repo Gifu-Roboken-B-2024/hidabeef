@@ -24,13 +24,21 @@ hidabeef::PWM_Status from_hal(HAL_StatusTypeDef s) {
 
 namespace hidabeef {
 
-PWM::PWM(TIM_HandleTypeDef *htim, std::uint32_t channel, std::uint32_t default_compare)
-    : HTIM_(htim), CHANNEL_(channel), DEFAULT_COMPARE_(default_compare) {
-}
+PWM::PWM(TIM_HandleTypeDef *htim, std::uint32_t channel,
+         std::uint32_t default_compare)
+    : HTIM_(htim), CHANNEL_(channel), DEFAULT_COMPARE_(default_compare) {}
 
 PWM_Status PWM::init() {
-  PWM_Status status = from_hal(HAL_TIM_PWM_Init(HTIM_));
+  if (HTIM_ == nullptr) {
+    return PWM_Status::Error;
+  }
 
+  HAL_StatusTypeDef hal_status = HAL_OK;
+  if (HTIM_->State == HAL_TIM_STATE_RESET) {
+    hal_status = HAL_TIM_PWM_Init(HTIM_);
+  }
+
+  PWM_Status status = from_hal(hal_status);
   if (status == PWM_Status::Ok) {
     initialized_ = true;
   }
