@@ -68,4 +68,16 @@ PWM_Status PWM::setCompare(std::uint32_t compare) {
   return PWM_Status::Ok;
 }
 
+void PWM::setAutoReload(std::uint32_t arr) {
+  __HAL_TIM_SET_AUTORELOAD(HTIM_, arr);
+}
+
+void PWM::setPrescaler(std::uint32_t psc) {
+  __HAL_TIM_SET_PRESCALER(HTIM_, psc);
+}
+
+void PWM::enablePreload() { __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
+
+void PWM::disablePreload() { __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
+
 } // namespace hidabeef
