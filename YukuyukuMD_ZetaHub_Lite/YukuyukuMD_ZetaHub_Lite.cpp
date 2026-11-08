@@ -6,7 +6,8 @@
 
 namespace hidabeef {
 
-PWM_Status YukuyukuMD_ZetaHub_Lite::attach(std::uint8_t port, PWM &forward, PWM &backward, float multiplier) {
+PWM_Status YukuyukuMD_ZetaHub_Lite::attach(std::uint8_t port, PWM &forward,
+                                           PWM &backward, float multiplier) {
   if (port < 1 || port > kPortCount) {
     return PWM_Status::InvalidArgument;
   }
@@ -43,6 +44,12 @@ YukuyukuMD_ZetaHub_LiteInitResult YukuyukuMD_ZetaHub_Lite::init() {
           s,
       };
     }
+
+    p.forward->disablePreload();
+    p.backward->disablePreload();
+
+    p.forward->setAutoReload(65535);
+    p.backward->setAutoReload(65535);
   }
 
   return result;
@@ -92,16 +99,17 @@ PWM_Status YukuyukuMD_ZetaHub_Lite::set(std::uint8_t port, std::int32_t value) {
 
   value *= p.multiplier;
 
-  const std::uint32_t mag = static_cast<std::uint32_t>(value < 0 ? -value : value);
+  const std::uint32_t mag =
+      static_cast<std::uint32_t>(value < 0 ? -value : value);
   PWM *off = value >= 0 ? p.backward : p.forward;
   PWM *on = value >= 0 ? p.forward : p.backward;
 
-  PWM_Status s = off->set(0);
+  PWM_Status s = off->setCompare(0);
   if (s != PWM_Status::Ok) {
     return s;
   }
 
-  return on->set(mag);
+  return on->setCompare(mag);
 }
 
 } // namespace hidabeef
