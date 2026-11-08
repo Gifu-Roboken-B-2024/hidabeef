@@ -20,8 +20,8 @@ public:
 
   PWM_Status init();
   PWM_Status start();
-  PWM_Status set(std::uint32_t compare);
 
+  PWM_Status setCompare(std::uint32_t compare);
 private:
   TIM_HandleTypeDef *HTIM_;
   std::uint32_t CHANNEL_;

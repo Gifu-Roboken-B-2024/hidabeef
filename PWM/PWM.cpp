@@ -55,7 +55,7 @@ PWM_Status PWM::start() {
   return from_hal(HAL_TIM_PWM_Start(HTIM_, CHANNEL_));
 }
 
-PWM_Status PWM::set(std::uint32_t compare) {
+PWM_Status PWM::setCompare(std::uint32_t compare) {
   if (!initialized_) {
     return PWM_Status::NotInitialized;
   }
