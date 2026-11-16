@@ -78,6 +78,6 @@ void PWM::setPrescaler(std::uint32_t psc) {
 
 void PWM::enablePreload() { __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
 
-void PWM::disablePreload() { __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
+void PWM::disablePreload() { __HAL_TIM_DISABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
 
 } // namespace hidabeef
