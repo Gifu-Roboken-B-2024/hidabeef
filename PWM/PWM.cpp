@@ -24,9 +24,9 @@ hidabeef::PWM_Status from_hal(HAL_StatusTypeDef s) {
 
 namespace hidabeef {
 
-PWM::PWM(TIM_HandleTypeDef *htim, std::uint32_t channel,
-         std::uint32_t default_compare)
-    : HTIM_(htim), CHANNEL_(channel), DEFAULT_COMPARE_(default_compare) {}
+PWM::PWM(TIM_HandleTypeDef *htim, std::uint32_t channel, std::uint32_t default_compare)
+    : HTIM_(htim), CHANNEL_(channel), DEFAULT_COMPARE_(default_compare) {
+}
 
 PWM_Status PWM::init() {
   if (HTIM_ == nullptr) {
@@ -76,8 +76,12 @@ void PWM::setPrescaler(std::uint32_t psc) {
   __HAL_TIM_SET_PRESCALER(HTIM_, psc);
 }
 
-void PWM::enablePreload() { __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
+void PWM::enablePreload() {
+  __HAL_TIM_ENABLE_OCxPRELOAD(HTIM_, CHANNEL_);
+}
 
-void PWM::disablePreload() { __HAL_TIM_DISABLE_OCxPRELOAD(HTIM_, CHANNEL_); }
+void PWM::disablePreload() {
+  __HAL_TIM_DISABLE_OCxPRELOAD(HTIM_, CHANNEL_);
+}
 
 } // namespace hidabeef

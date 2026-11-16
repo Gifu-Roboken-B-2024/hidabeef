@@ -1,14 +1,14 @@
 #pragma once
 
-#include "./../PWM/PWM.hpp"
+#include "./../types.hpp"
 #include <cstdint>
 
 namespace hidabeef {
 
 class PiezoSpeaker {
 public:
-  explicit PiezoSpeaker(PWM &pwm, std::uint32_t tim_clock)
-      : pwm_(pwm), tim_clock_(tim_clock) {}
+  explicit PiezoSpeaker(PWM &pwm, std::uint32_t tim_clock) : pwm_(pwm), tim_clock_(tim_clock) {
+  }
 
   PWM_Status begin();
 

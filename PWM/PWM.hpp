@@ -1,23 +1,14 @@
 #pragma once
 
+#include "./../types.hpp"
 #include "tim.h"
 #include <cstdint>
 
 namespace hidabeef {
 
-enum class PWM_Status : std::uint8_t {
-  Ok,
-  Error,
-  Busy,
-  Timeout,
-  NotInitialized,
-  InvalidArgument,
-};
-
 class PWM {
 public:
-  PWM(TIM_HandleTypeDef *htim, std::uint32_t channel,
-      std::uint32_t default_compare);
+  PWM(TIM_HandleTypeDef *htim, std::uint32_t channel, std::uint32_t default_compare);
 
   PWM_Status init();
   PWM_Status start();
