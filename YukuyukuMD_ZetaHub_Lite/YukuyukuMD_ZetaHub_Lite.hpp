@@ -8,7 +8,7 @@
 
 namespace hidabeef {
 
-struct YukuyukuMD_ZetaHub_LiteInitResult {
+struct YukuyukuMD_ZetaHub_LiteResult {
   // 0 -> Success, 1 -> PWM1, 2 -> PWM2
   std::uint8_t pwm_num = 0;
   PWM_Status status = PWM_Status::Ok;
@@ -18,10 +18,11 @@ class YukuyukuMD_ZetaHub_Lite {
 public:
   static constexpr std::size_t kPortCount = 4;
 
-  PWM_Status attach(std::uint8_t port, PWM &forward, PWM &backward, float multiplier);
+  PWM_Status attach(std::uint8_t port, PWM &forward, PWM &backward,
+                    float multiplier);
 
-  YukuyukuMD_ZetaHub_LiteInitResult init();
-  YukuyukuMD_ZetaHub_LiteInitResult start();
+  YukuyukuMD_ZetaHub_LiteResult init();
+  YukuyukuMD_ZetaHub_LiteResult start();
 
   PWM_Status set(std::uint8_t port, std::int32_t value);
 

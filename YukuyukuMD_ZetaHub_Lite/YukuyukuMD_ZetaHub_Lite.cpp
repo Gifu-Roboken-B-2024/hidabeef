@@ -16,8 +16,8 @@ PWM_Status YukuyukuMD_ZetaHub_Lite::attach(std::uint8_t port, PWM &forward,
   return PWM_Status::Ok;
 }
 
-YukuyukuMD_ZetaHub_LiteInitResult YukuyukuMD_ZetaHub_Lite::init() {
-  YukuyukuMD_ZetaHub_LiteInitResult result{};
+YukuyukuMD_ZetaHub_LiteResult YukuyukuMD_ZetaHub_Lite::init() {
+  YukuyukuMD_ZetaHub_LiteResult result{};
 
   // PWM1
   for (std::size_t i = 0; i < kPortCount; i++) {
@@ -55,8 +55,8 @@ YukuyukuMD_ZetaHub_LiteInitResult YukuyukuMD_ZetaHub_Lite::init() {
   return result;
 }
 
-YukuyukuMD_ZetaHub_LiteInitResult YukuyukuMD_ZetaHub_Lite::start() {
-  YukuyukuMD_ZetaHub_LiteInitResult result{};
+YukuyukuMD_ZetaHub_LiteResult YukuyukuMD_ZetaHub_Lite::start() {
+  YukuyukuMD_ZetaHub_LiteResult result{};
 
   // PWM1
   for (std::size_t i = 0; i < kPortCount; i++) {
