@@ -17,7 +17,7 @@ public:
   void tone(std::uint32_t freq);
 
 private:
-  PWM pwm_;
+  PWM &pwm_;
   std::uint32_t tim_clock_;
 };
 

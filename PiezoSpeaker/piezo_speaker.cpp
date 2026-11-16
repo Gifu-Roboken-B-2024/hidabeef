@@ -2,6 +2,7 @@
 
 #include <cstdint>
 
+#include "./../PWM/PWM.hpp"
 #include "./../types.hpp"
 
 namespace hidabeef {

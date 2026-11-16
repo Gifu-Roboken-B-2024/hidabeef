@@ -3,7 +3,8 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "./../motor_types.hpp"
+#include "./../PWM/PWM.hpp"
+#include "./../types.hpp"
 
 namespace hidabeef {
 

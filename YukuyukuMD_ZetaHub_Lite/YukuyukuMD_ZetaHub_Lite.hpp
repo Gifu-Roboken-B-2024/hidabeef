@@ -4,7 +4,6 @@
 #include <cstddef>
 #include <cstdint>
 
-#include "./../motor_types.hpp"
 #include "./../types.hpp"
 
 namespace hidabeef {
