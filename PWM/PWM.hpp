@@ -9,7 +9,9 @@ namespace hidabeef {
 
 class PWM {
 public:
-  PWM(TIM_HandleTypeDef *htim, std::uint32_t channel, std::uint32_t default_compare);
+  PWM(TIM_HandleTypeDef *htim, std::uint32_t channel, std::uint32_t default_compare)
+      : htim_(htim), channel_(channel), default_compare_(default_compare) {
+  }
 
   PWM_Status init();
   PWM_Status start();
@@ -21,9 +23,9 @@ public:
   void disablePreload();
 
 private:
-  TIM_HandleTypeDef *HTIM_;
-  std::uint32_t CHANNEL_;
-  std::uint32_t DEFAULT_COMPARE_;
+  TIM_HandleTypeDef *htim_;
+  std::uint32_t channel_;
+  std::uint32_t default_compare_;
 
   bool initialized_ = false;
 };
