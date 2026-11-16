@@ -1,18 +1,13 @@
 #pragma once
 
-#include "./../PWM/PWM.hpp"
-#include "./../motor_types.hpp"
 #include <array>
 #include <cstddef>
 #include <cstdint>
 
-namespace hidabeef {
+#include "./../motor_types.hpp"
+#include "./../types.hpp"
 
-struct YukuyukuMD_ZetaHub_LiteResult {
-  // 0 -> Success, 1 -> PWM1, 2 -> PWM2
-  std::uint8_t pwm_num = 0;
-  PWM_Status status = PWM_Status::Ok;
-};
+namespace hidabeef {
 
 class YukuyukuMD_ZetaHub_Lite {
 public:

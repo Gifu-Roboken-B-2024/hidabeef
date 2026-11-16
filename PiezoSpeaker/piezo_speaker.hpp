@@ -1,7 +1,8 @@
 #pragma once
 
-#include "./../PWM/PWM.hpp"
 #include <cstdint>
+
+#include "./../types.hpp"
 
 namespace hidabeef {
 

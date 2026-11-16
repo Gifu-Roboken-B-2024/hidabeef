@@ -1,7 +1,8 @@
 #include "piezo_speaker.hpp"
 
-#include "./../PWM/PWM.hpp"
 #include <cstdint>
+
+#include "./../types.hpp"
 
 namespace hidabeef {
 

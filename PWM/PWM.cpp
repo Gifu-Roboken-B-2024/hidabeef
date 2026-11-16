@@ -1,7 +1,9 @@
 #include "PWM.hpp"
 
-#include "tim.h"
 #include <cstdint>
+
+#include "./../types.hpp"
+#include "tim.h"
 
 namespace {
 
