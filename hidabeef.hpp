@@ -1,3 +1,4 @@
+#include "./CAN/can.hpp"
 #include "./PWM/PWM.hpp"
 #include "./PiezoSpeaker/piezo_speaker.hpp"
 #include "./YukuyukuMD_ZetaHub_Lite/YukuyukuMD_ZetaHub_Lite.hpp"
