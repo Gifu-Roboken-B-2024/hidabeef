@@ -1,8 +1,9 @@
 #pragma once
 
+#include <cstdint>
+
 #include "./../types.hpp"
 #include "tim.h"
-#include <cstdint>
 
 namespace hidabeef {
 

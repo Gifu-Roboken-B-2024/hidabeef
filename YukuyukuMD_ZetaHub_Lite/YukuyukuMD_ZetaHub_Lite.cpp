@@ -1,8 +1,9 @@
 #include "YukuyukuMD_ZetaHub_Lite.hpp"
 
-#include "./../motor_types.hpp"
 #include <cstddef>
 #include <cstdint>
+
+#include "./../motor_types.hpp"
 
 namespace hidabeef {
 

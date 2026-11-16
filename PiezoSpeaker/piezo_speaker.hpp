@@ -1,7 +1,8 @@
 #pragma once
 
-#include "./../types.hpp"
 #include <cstdint>
+
+#include "./../types.hpp"
 
 namespace hidabeef {
 

@@ -8,6 +8,12 @@ class PWM;
 class PiezoSpeaker;
 class YukuyukuMD_ZetaHub_Lite;
 
+struct MotorPort {
+  PWM *forward = nullptr;
+  PWM *backward = nullptr;
+  float multiplier;
+};
+
 enum class PWM_Status : std::uint8_t {
   Ok,
   Error,
@@ -15,12 +21,6 @@ enum class PWM_Status : std::uint8_t {
   Timeout,
   NotInitialized,
   InvalidArgument,
-};
-
-struct MotorPort {
-  PWM *forward = nullptr;
-  PWM *backward = nullptr;
-  float multiplier;
 };
 
 struct YukuyukuMD_ZetaHub_LiteResult {
